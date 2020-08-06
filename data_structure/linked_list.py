@@ -147,7 +147,14 @@ class LinkedList_V2:
 
     def get_node_position(self, node):
         """Create a method to retrieve an element from a specific position: get(i) or even llist[i]."""
-        pass
+        if not self.head:
+            raise Exception('List is empty')
+        no = 0
+        for current_node in self:
+            no += 1
+            if current_node.data == node:
+                return no
+        raise Exception(f'Node with data `{node}` not found.')
 
     def reverse(self):
         """Create a method to reverse the linked list: llist.reverse()."""
