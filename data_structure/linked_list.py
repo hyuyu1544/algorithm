@@ -158,7 +158,16 @@ class LinkedList_V2:
 
     def reverse(self):
         """Create a method to reverse the linked list: llist.reverse()."""
-        pass
+        if not self.head:
+            raise Exception('List is empty')
+        pre_node = None
+        node = self.head
+        while node is not None:
+            current_node = node
+            node = node.next
+            current_node.next = pre_node
+            pre_node = current_node
+        return pre_node
 
     # TODO::Create a Queue() object inheriting this article’s linked list with enqueue() and dequeue() methods.
 
